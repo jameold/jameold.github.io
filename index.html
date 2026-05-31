@@ -1,1 +1,878 @@
-<h1> Thai8limbs </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THAIBLIMBS — Custom Muay Thai Shorts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #121414;
+    --surface-low: #1a1c1c;
+    --surface-card: #1e2020;
+    --surface-high: #282a2b;
+    --red: #e61919;
+    --red-hover: #ff2020;
+    --gold: #d4af37;
+    --gold-dim: #af8d11;
+    --white: #f5f5f5;
+    --text: #e2e2e2;
+    --muted: #a0a0a0;
+    --outline: #3a3a3a;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--red); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px;
+    height: 60px;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .nav-logo {
+    font-family: 'Anton', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+  }
+  .nav-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a.active { color: var(--white); }
+  .nav-links a.active::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: var(--red);
+  }
+  .nav-links a:hover { color: var(--white); }
+  .btn-nav {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--red);
+    color: var(--white);
+    border: none; cursor: pointer;
+    padding: 10px 22px;
+    transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+  }
+  .btn-nav:hover { background: var(--gold); color: #000; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 80px 24px 60px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 50% 40%, rgba(230,25,25,0.12) 0%, transparent 70%),
+      linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.7) 60%, var(--bg) 100%);
+    z-index: 1;
+  }
+  /* Simulated background texture using CSS */
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"),
+      linear-gradient(135deg, #1a0505 0%, #0a0a0a 40%, #0d0a06 100%);
+    z-index: 0;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 760px;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    border: 1px solid var(--gold-dim);
+    padding: 6px 16px;
+    margin-bottom: 28px;
+  }
+  .hero-badge span { color: var(--muted); }
+  .hero h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(56px, 10vw, 96px);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+  .hero h1 .accent { color: var(--red); }
+  .hero-sub {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+  .hero-cta {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  }
+  .btn-primary {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--red);
+    color: var(--white);
+    border: none; cursor: pointer;
+    padding: 16px 32px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold); color: #000; }
+  .btn-secondary {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.25);
+    cursor: pointer;
+    padding: 16px 32px;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-scroll {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    animation: bounce 2s infinite;
+  }
+  .hero-scroll svg { opacity: 0.4; }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 120px 40px; }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  /* ── CRAFTSMANSHIP ── */
+  .craftsmanship { background: var(--surface); }
+  .section-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 40px; flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 3px; height: 14px;
+    background: var(--red);
+  }
+  .section-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .section-desc {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 360px;
+    line-height: 1.7;
+    align-self: flex-end;
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .product-card {
+    background: var(--surface-card);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .product-card:hover { transform: translateY(-4px); }
+  .product-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+    pointer-events: none;
+  }
+  .product-card:hover::after { border-color: var(--gold); }
+  .product-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--surface-high);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  /* SVG shorts illustration */
+  .product-img svg { width: 60%; height: auto; transition: transform 0.3s; }
+  .product-card:hover .product-img svg { transform: scale(1.06); }
+  .product-info { padding: 24px; }
+  .product-name {
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .product-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── LEGACY ── */
+  .legacy { background: var(--bg); }
+  .legacy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .legacy-image {
+    position: relative;
+  }
+  .legacy-img-box {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: var(--surface-low);
+    position: relative;
+    overflow: hidden;
+  }
+  .legacy-img-box::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(230,25,25,0.08), transparent 60%);
+  }
+  /* Fighter silhouette illustration */
+  .legacy-img-inner {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: #0f0f0f;
+  }
+  .legacy-badge {
+    position: absolute; bottom: -1px; left: -1px;
+    background: var(--gold);
+    color: #000;
+    padding: 20px 28px;
+  }
+  .legacy-badge-num {
+    font-family: 'Anton', sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    display: block;
+  }
+  .legacy-badge-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 2px;
+  }
+  .legacy-content .section-label { margin-bottom: 12px; }
+  .legacy-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 32px;
+  }
+  .legacy-text {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .legacy-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid var(--outline);
+  }
+  .stat-num {
+    font-family: 'Anton', sans-serif;
+    font-size: 40px;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* ── CONTACT ── */
+  .contact { background: var(--surface); }
+  .contact-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 16px;
+    position: relative;
+    display: inline-block;
+    left: 50%; transform: translateX(-50%);
+  }
+  .contact-title::after {
+    content: '';
+    display: block;
+    width: 60px; height: 3px;
+    background: var(--red);
+    margin: 16px auto 0;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 64px;
+  }
+  .contact-col-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 28px;
+  }
+  .form-group { margin-bottom: 28px; }
+  .form-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .form-input {
+    width: 100%;
+    background: transparent;
+    border: none; border-bottom: 1px solid rgba(255,255,255,0.15);
+    color: var(--text);
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 15px;
+    padding: 10px 0;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input::placeholder { color: rgba(255,255,255,0.2); font-size: 13px; }
+  .form-input:focus { border-color: var(--gold); }
+  textarea.form-input { resize: none; min-height: 80px; }
+  .btn-submit {
+    width: 100%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: var(--red);
+    color: var(--white);
+    border: none; cursor: pointer;
+    padding: 18px;
+    margin-top: 8px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-submit:hover { background: var(--gold); color: #000; }
+
+  .hq-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .hq-value {
+    font-size: 15px; color: var(--text); margin-bottom: 20px;
+  }
+  .hq-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 4px;
+  }
+  .hq-link:hover { color: var(--red); }
+  .hq-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 20px; margin-top: 24px;
+  }
+  .social-row {
+    display: flex; gap: 12px; margin-top: 20px;
+  }
+  .social-btn {
+    width: 38px; height: 38px;
+    border: 1px solid var(--outline);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--outline);
+    padding: 24px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo {
+    font-family: 'Anton', sans-serif;
+    font-size: 18px; letter-spacing: 0.08em;
+    color: var(--white); text-decoration: none;
+  }
+  .footer-links {
+    display: flex; gap: 28px; list-style: none; flex-wrap: wrap;
+  }
+  .footer-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); text-decoration: none;
+  }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ── ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    section { padding: 80px 20px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .products-grid { grid-template-columns: 1fr; }
+    .legacy-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <a href="#" class="nav-logo">THAIBLIMBS</a>
+  <ul class="nav-links">
+    <li><a href="#hero" class="active">HERO</a></li>
+    <li><a href="#craftsmanship">PORTFOLIO</a></li>
+    <li><a href="#craftsmanship">CRAFTSMANSHIP</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+  <a href="#contact" class="btn-nav">START CUSTOMIZING</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <!-- Decorative Lai Thai SVG overlay -->
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.035;z-index:1;pointer-events:none" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="laiThai" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+        <path d="M60 10 Q80 30 60 60 Q40 30 60 10Z" fill="none" stroke="#d4af37" stroke-width="1"/>
+        <path d="M10 60 Q30 40 60 60 Q30 80 10 60Z" fill="none" stroke="#d4af37" stroke-width="1"/>
+        <path d="M110 60 Q90 40 60 60 Q90 80 110 60Z" fill="none" stroke="#d4af37" stroke-width="1"/>
+        <path d="M60 110 Q80 90 60 60 Q40 90 60 110Z" fill="none" stroke="#d4af37" stroke-width="1"/>
+        <circle cx="60" cy="60" r="8" fill="none" stroke="#d4af37" stroke-width="0.5"/>
+        <circle cx="60" cy="60" r="20" fill="none" stroke="#d4af37" stroke-width="0.3"/>
+      </pattern>
+    </defs>
+    <rect width="1200" height="800" fill="url(#laiThai)"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-badge">EST. 2024 <span>▸</span> BANGKOK</div>
+    <h1>CUSTOM <span class="accent">MUAY THAI</span><br>SHORTS</h1>
+    <p class="hero-sub">Handcrafted Excellence. Your Design, Our Craft. Experience the pinnacle of performance gear tailored to your warrior spirit.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">START CUSTOMIZING</a>
+      <a href="#craftsmanship" class="btn-secondary">VIEW GALLERY</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M5 11l5 5 5-5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</section>
+
+<!-- ── CRAFTSMANSHIP ── -->
+<section class="craftsmanship" id="craftsmanship">
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-label">THE COLLECTION</div>
+        <h2 class="section-title">OUR CRAFTSMANSHIP</h2>
+      </div>
+      <p class="section-desc">Three distinct silhouettes, infinite possibilities. Choose your foundation and let our masters bring your vision to life.</p>
+    </div>
+
+    <div class="products-grid">
+      <!-- Traditional -->
+      <div class="product-card reveal reveal-delay-1">
+        <div class="product-img">
+          <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="g1" cx="50%" cy="30%" r="70%">
+                <stop offset="0%" stop-color="#3a3a3a"/>
+                <stop offset="100%" stop-color="#1a1a1a"/>
+              </radialGradient>
+            </defs>
+            <!-- Waistband -->
+            <rect x="30" y="20" width="140" height="28" rx="0" fill="#c9a227"/>
+            <line x1="30" y1="28" x2="170" y2="28" stroke="#a07c10" stroke-width="1"/>
+            <line x1="30" y1="36" x2="170" y2="36" stroke="#a07c10" stroke-width="1"/>
+            <!-- Shorts body -->
+            <path d="M30 48 L40 180 Q60 210 100 210 Q140 210 160 180 L170 48 Z" fill="url(#g1)"/>
+            <!-- Center split -->
+            <path d="M100 48 L100 210" stroke="#2a2a2a" stroke-width="2"/>
+            <!-- Thai pattern embroidery -->
+            <path d="M50 80 Q70 70 90 80 Q70 90 50 80Z" fill="none" stroke="#c9a227" stroke-width="1.5"/>
+            <path d="M110 80 Q130 70 150 80 Q130 90 110 80Z" fill="none" stroke="#c9a227" stroke-width="1.5"/>
+            <path d="M55 110 Q75 100 95 110 Q75 120 55 110Z" fill="none" stroke="#c9a227" stroke-width="1.2"/>
+            <path d="M105 110 Q125 100 145 110 Q125 120 105 110Z" fill="none" stroke="#c9a227" stroke-width="1.2"/>
+            <!-- Thai script-like decoration -->
+            <text x="62" y="155" font-family="serif" font-size="22" fill="#c9a227" opacity="0.8">สยาม</text>
+            <!-- Side trim -->
+            <path d="M30 48 L40 180" stroke="#c9a227" stroke-width="2"/>
+            <path d="M170 48 L160 180" stroke="#c9a227" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="product-info">
+          <div class="product-name">TRADITIONAL</div>
+          <div class="product-sub">SIAM LEGACY CUT</div>
+        </div>
+      </div>
+
+      <!-- Modern -->
+      <div class="product-card reveal reveal-delay-2">
+        <div class="product-img">
+          <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2a2a2a"/>
+                <stop offset="100%" stop-color="#0f0f0f"/>
+              </linearGradient>
+            </defs>
+            <!-- Waistband black -->
+            <rect x="28" y="20" width="144" height="28" rx="0" fill="#1a1a1a"/>
+            <rect x="28" y="24" width="144" height="4" fill="#222"/>
+            <text x="68" y="39" font-family="'JetBrains Mono', monospace" font-size="10" fill="#888" letter-spacing="2">NAK ELITE</text>
+            <!-- Shorts body slim cut -->
+            <path d="M35 48 L50 185 Q70 215 100 215 Q130 215 150 185 L165 48 Z" fill="url(#g2)"/>
+            <!-- Tighter side cut = modern -->
+            <path d="M100 48 L100 215" stroke="#1e1e1e" stroke-width="1.5"/>
+            <!-- Minimal red accent stripe -->
+            <rect x="35" y="48" width="6" height="137" fill="#e61919" opacity="0.8"/>
+            <rect x="159" y="48" width="6" height="137" fill="#e61919" opacity="0.8"/>
+            <!-- Brand text -->
+            <text x="62" y="130" font-family="'Anton', sans-serif" font-size="14" fill="#333" letter-spacing="3">MUAY</text>
+            <text x="62" y="150" font-family="'Anton', sans-serif" font-size="14" fill="#333" letter-spacing="3">THAI</text>
+          </svg>
+        </div>
+        <div class="product-info">
+          <div class="product-name">MODERN</div>
+          <div class="product-sub">PERFORMANCE HYBRID</div>
+        </div>
+      </div>
+
+      <!-- Minimalist -->
+      <div class="product-card reveal reveal-delay-3">
+        <div class="product-img">
+          <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g3" x1="0%" y1="0%" x2="50%" y2="100%">
+                <stop offset="0%" stop-color="#d8d8d8"/>
+                <stop offset="100%" stop-color="#a0a0a0"/>
+              </linearGradient>
+            </defs>
+            <!-- Waistband silver -->
+            <rect x="30" y="20" width="140" height="26" rx="0" fill="#b8b8b8"/>
+            <rect x="30" y="20" width="140" height="5" fill="#d4d4d4"/>
+            <text x="66" y="37" font-family="'Anton', sans-serif" font-size="10" fill="#888" letter-spacing="2">สมปอย</text>
+            <!-- Shorts clean body -->
+            <path d="M32 46 L44 188 Q65 218 100 218 Q135 218 156 188 L168 46 Z" fill="url(#g3)"/>
+            <path d="M100 46 L100 218" stroke="#c8c8c8" stroke-width="1"/>
+            <!-- Minimal pattern only at bottom -->
+            <path d="M44 160 Q72 152 100 158 Q128 152 156 160" stroke="#888" stroke-width="1" fill="none"/>
+            <path d="M44 170 Q72 162 100 168 Q128 162 156 170" stroke="#888" stroke-width="0.7" fill="none"/>
+            <!-- Small emblem -->
+            <circle cx="100" cy="110" r="14" fill="none" stroke="#888" stroke-width="1"/>
+            <text x="92" y="114" font-family="serif" font-size="14" fill="#888">นบ</text>
+          </svg>
+        </div>
+        <div class="product-info">
+          <div class="product-name">MINIMALIST</div>
+          <div class="product-sub">THE STEALTH EDITION</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LEGACY ── -->
+<section class="legacy" id="legacy">
+  <div class="container">
+    <div class="legacy-grid">
+      <div class="legacy-image reveal">
+        <div class="legacy-img-box">
+          <div class="legacy-img-inner">
+            <!-- Fighter training illustration -->
+            <svg viewBox="0 0 400 500" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <radialGradient id="spotlight" cx="50%" cy="40%" r="60%">
+                  <stop offset="0%" stop-color="#2a0808"/>
+                  <stop offset="100%" stop-color="#0a0a0a"/>
+                </radialGradient>
+              </defs>
+              <rect width="400" height="500" fill="url(#spotlight)"/>
+              <!-- Fighter 1 silhouette -->
+              <g fill="#1a1a1a" stroke="#e0e0e0" stroke-width="0.5" opacity="0.85">
+                <!-- Head -->
+                <ellipse cx="130" cy="80" rx="22" ry="24" fill="#d0d0d0" stroke="none"/>
+                <!-- Body -->
+                <path d="M108 104 L90 200 L110 280 L130 280 L140 200 L155 104 Z" fill="#c0c0c0" stroke="none"/>
+                <!-- Left arm raised punch -->
+                <path d="M108 120 L60 80 L52 92 L100 136 Z" fill="#c0c0c0" stroke="none"/>
+                <!-- Right arm guard -->
+                <path d="M152 115 L175 140 L168 150 L142 128 Z" fill="#b0b0b0" stroke="none"/>
+                <!-- Shorts -->
+                <path d="M90 200 L80 290 L108 290 L130 240 L152 290 L180 290 L155 200 Z" fill="#e61919" stroke="none"/>
+                <!-- Legs -->
+                <path d="M80 290 L70 400 L95 400 L108 310 Z" fill="#c0c0c0" stroke="none"/>
+                <path d="M180 290 L190 400 L165 400 L152 310 Z" fill="#c0c0c0" stroke="none"/>
+              </g>
+              <!-- Fighter 2 silhouette (trainer) -->
+              <g opacity="0.5">
+                <ellipse cx="280" cy="90" rx="20" ry="22" fill="#888" stroke="none"/>
+                <path d="M260 112 L245 210 L265 280 L280 280 L296 210 L316 112 Z" fill="#777" stroke="none"/>
+                <path d="M316 120 L355 95 L362 107 L322 132 Z" fill="#888" stroke="none"/>
+                <path d="M245 210 L235 295 L258 295 L280 245 L302 295 L325 295 L316 210 Z" fill="#555" stroke="none"/>
+                <path d="M235 295 L225 400 L250 400 L265 315 Z" fill="#777" stroke="none"/>
+                <path d="M325 295 L335 400 L310 400 L296 315 Z" fill="#777" stroke="none"/>
+              </g>
+              <!-- Floor line -->
+              <line x1="0" y1="400" x2="400" y2="400" stroke="#333" stroke-width="1"/>
+              <!-- Atmosphere -->
+              <rect width="400" height="500" fill="url(#spotlight)" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="legacy-badge">
+            <span class="legacy-badge-num">100%</span>
+            <span class="legacy-badge-label">HANDMADE IN THAILAND</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="legacy-content reveal reveal-delay-1">
+        <div class="section-label">AUTHENTIC ROOTS</div>
+        <h2 class="legacy-title">THE LEGACY</h2>
+        <p class="legacy-text">Founded in the heart of Bangkok, Nak Muay Elite was born from a singular obsession: to provide fighters with gear that matches the discipline of their training.</p>
+        <p class="legacy-text">Our workshop employs third-generation master tailors who treat every stitch as a prayer. We don't just use silk and satin; we use heritage. Each pair of shorts is a canvas where centuries of Muay Thai tradition meet modern industrial durability.</p>
+        <p class="legacy-text">When you step into the ring wearing Nak Muay Elite, you aren't just wearing shorts—you are wearing the spirit of the Art of Eight Limbs.</p>
+
+        <div class="legacy-stats">
+          <div>
+            <div class="stat-num">48H</div>
+            <div class="stat-label">CUSTOM PROTOTYPE</div>
+          </div>
+          <div>
+            <div class="stat-num">15K+</div>
+            <div class="stat-label">FIGHTERS EQUIPPED</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="contact-title">GET IN TOUCH</h2>
+
+    <div class="contact-grid">
+      <!-- Form -->
+      <div class="reveal">
+        <div class="contact-col-title">DIRECT INQUIRY</div>
+        <div class="form-group">
+          <label class="form-label">FULL NAME</label>
+          <input type="text" class="form-input" placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">CONTACT EMAIL</label>
+          <input type="email" class="form-input" placeholder="Email address">
+        </div>
+        <div class="form-group">
+          <label class="form-label">MESSAGE</label>
+          <textarea class="form-input" rows="4" placeholder="Your design vision"></textarea>
+        </div>
+        <button class="btn-submit">SEND TRANSMISSION</button>
+      </div>
+
+      <!-- HQ Info -->
+      <div class="reveal reveal-delay-1">
+        <div class="contact-col-title">BANGKOK HEADQUARTERS</div>
+        <div class="hq-label">ADDRESS</div>
+        <div class="hq-value">128/4 Soi Phetchaburi 11,<br>Ratchathewi, Bangkok 10400<br>Thailand</div>
+        <a href="#" class="hq-link">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          VIEW ON MAP
+        </a>
+
+        <div class="hq-row" style="margin-top:32px">
+          <div>
+            <div class="hq-label">PHONE</div>
+            <div class="hq-value">+66 2 345 6789</div>
+          </div>
+          <div>
+            <div class="hq-label">EMAIL</div>
+            <div class="hq-value">elite@nakmuay.com</div>
+          </div>
+        </div>
+
+        <div style="margin-top:28px">
+          <div class="hq-label">FOLLOW THE TRIBE</div>
+          <div class="social-row">
+            <a href="#" class="social-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="TikTok">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34l-.02-8.47a8.19 8.19 0 004.77 1.52V5.01a4.85 4.85 0 01-1-.32z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <a href="#" class="footer-logo">THAIBLIMBS</a>
+  <ul class="footer-links">
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms of Service</a></li>
+    <li><a href="#">Shipping Info</a></li>
+    <li><a href="#">Bulk Orders</a></li>
+  </ul>
+  <span class="footer-copy">© 2024 NAK MUAY ELITE. HANDMADE IN THAILAND.</span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+</body>
+</html>
