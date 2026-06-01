@@ -3,14 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THAI8LIMBS — Custom Muay Thai Shorts</title>
+<title>THAI8LIMBS — Custom Muay Thai Shorts Bangkok | Starting ฿990</title>
 
-  <meta name="description" content="THAI8LIMBS — Custom handmade Muay Thai shorts from Bangkok. 20+ years of craftsmanship. Starting ฿990. Ships worldwide. Order via LINE or Facebook.">
+  <meta name="description" content="THAI8LIMBS — Custom handmade Muay Thai shorts from Bangkok. 3rd-generation master tailors. Starting ฿990. Fully customizable fabric, colours & embroidery. Ships worldwide.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thai8limbs.com/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thai8limbs.com/">
   <meta property="og:title" content="THAI8LIMBS — Custom Muay Thai Shorts, Bangkok">
   <meta property="og:description" content="Handmade Muay Thai shorts crafted by 3rd-generation master tailors in Bangkok. Fully custom design. Starting ฿990. Ships worldwide.">
-  <meta property="og:type" content="website">
-  <meta name="theme-color" content="#e61919">
+  <meta property="og:image" content="https://thai8limbs.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="th_TH">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="THAI8LIMBS — Custom Muay Thai Shorts, Bangkok">
+  <meta name="twitter:description" content="Handmade Muay Thai shorts from Bangkok. Starting ฿990. Ships worldwide.">
+  <meta name="twitter:image" content="https://thai8limbs.com/og-image.jpg">
+
+  <meta name="theme-color" content="#d92b2b">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥊</text></svg>">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://thai8limbs.com/#business",
+        "name": "THAI8LIMBS",
+        "description": "Custom handmade Muay Thai shorts crafted by 3rd-generation master tailors in Bangkok. Fully customizable design starting at ฿990.",
+        "url": "https://thai8limbs.com",
+        "telephone": ["+66633685231", "+66923910571"],
+        "email": "thai8limbs@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1110/10 Caribbean Home Village Soi 17, Chalongkrung Rd",
+          "addressLocality": "Lat Krabang",
+          "addressRegion": "Bangkok",
+          "postalCode": "10520",
+          "addressCountry": "TH"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 13.7366,
+          "longitude": 100.7481
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        "priceRange": "฿฿",
+        "image": "https://thai8limbs.com/og-image.jpg",
+        "sameAs": [
+          "https://www.facebook.com/people/Thai8Limbs/61574075101209/"
+        ]
+      },
+      {
+        "@type": "Product",
+        "@id": "https://thai8limbs.com/#product",
+        "name": "Custom Muay Thai Shorts",
+        "description": "Fully custom handmade Muay Thai shorts. Choose any fabric, colours, embroidery, waistband pattern and cut. Starting at ฿990 per pair.",
+        "brand": { "@type": "Brand", "name": "THAI8LIMBS" },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "THB",
+          "price": "990",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/InStock",
+          "url": "https://thai8limbs.com/"
+        },
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "THAI8LIMBS",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bangkok",
+            "addressCountry": "TH"
+          }
+        }
+      }
+    ]
+  }
+  </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Barlow:wght@400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -933,32 +1016,259 @@
     section { padding: 80px 20px; }
     nav { padding: 0 20px; }
     .nav-links { display: none; }
+    .btn-nav { display: none; }
     .products-grid { grid-template-columns: 1fr; }
     .legacy-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; text-align: center; padding: 24px 20px; }
     .hero-content { padding: 0 24px; }
     .hero-scroll { left: 24px; }
+    .shipping-grid { grid-template-columns: 1fr; }
+    .size-table-wrap { overflow-x: auto; }
   }
-</style>
-</head>
-<body>
 
-<!-- ── NAVIGATION ── -->
-<nav>
-  <a href="#" class="nav-logo">THAI8LIMBS</a>
-  <ul class="nav-links">
-    <li><a href="#hero" class="active">HOME</a></li>
-    <li><a href="#gallery">GALLERY</a></li>
-    <li><a href="#process">HOW TO ORDER</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact">CONTACT</a></li>
-  </ul>
-  <button class="btn-nav" onclick="openContactModal()">START CUSTOMIZING</button>
-</nav>
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    padding: 8px 10px;
+    width: 40px; height: 40px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 20px; height: 2px;
+    background: var(--white);
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  @media (max-width: 900px) {
+    .nav-hamburger { display: flex; }
+  }
 
-<!-- ── HERO VIDEO STYLES ── -->
-<style>
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    position: fixed; inset: 0; z-index: 99;
+    background: #080808;
+    display: flex; flex-direction: column;
+    padding: 80px 32px 40px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .mobile-menu.open { transform: translateX(0); }
+  .mobile-menu-close {
+    position: absolute; top: 16px; right: 20px;
+    background: none; border: none;
+    color: var(--muted); font-size: 24px;
+    cursor: pointer; transition: color 0.15s;
+  }
+  .mobile-menu-close:hover { color: var(--white); }
+  .mobile-menu-links {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .mobile-menu-links li {
+    border-bottom: 1px solid var(--outline);
+  }
+  .mobile-menu-links a {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 0.06em;
+    color: var(--white);
+    text-decoration: none;
+    padding: 16px 0;
+    transition: color 0.15s, padding-left 0.15s;
+  }
+  .mobile-menu-links a:hover { color: var(--red); padding-left: 8px; }
+
+  /* ── SHIPPING SECTION ── */
+  .shipping-section { background: var(--surface); }
+  .shipping-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+  .ship-card {
+    background: var(--surface-card);
+    padding: 32px 28px;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .ship-card:hover { border-left-color: var(--red); }
+  .ship-card-icon {
+    width: 48px; height: 48px;
+    border: 2px solid var(--red);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--red);
+    margin-bottom: 20px;
+  }
+  .ship-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .ship-card-body {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .ship-card-body strong { color: var(--white); font-style: normal; }
+  .ship-timeline {
+    display: flex;
+    gap: 0;
+    margin-top: 48px;
+    position: relative;
+  }
+  .ship-timeline::before {
+    content: '';
+    position: absolute;
+    top: 24px; left: 0; right: 0;
+    height: 2px;
+    background: var(--outline);
+    z-index: 0;
+  }
+  .ship-step {
+    flex: 1; text-align: center;
+    position: relative; z-index: 1;
+    padding: 0 8px;
+  }
+  .ship-step-dot {
+    width: 48px; height: 48px;
+    background: var(--surface-card);
+    border: 2px solid var(--outline);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 12px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--muted);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .ship-step.active .ship-step-dot {
+    border-color: var(--red);
+    color: var(--red);
+    background: rgba(217,43,43,0.08);
+  }
+  .ship-step-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .ship-step.active .ship-step-label { color: var(--white); }
+  .ship-step-days {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── SIZE GUIDE ── */
+  .size-section { background: var(--bg); }
+  .size-table-wrap { overflow-x: auto; margin-top: 48px; }
+  .size-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    min-width: 560px;
+  }
+  .size-table th {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    background: var(--surface-card);
+    padding: 16px 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--red);
+  }
+  .size-table th:first-child { text-align: left; }
+  .size-table td {
+    padding: 14px 20px;
+    text-align: center;
+    color: var(--muted);
+    border-bottom: 1px solid var(--outline);
+    font-size: 14px;
+  }
+  .size-table td:first-child {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--white);
+    text-align: left;
+    letter-spacing: 0.08em;
+  }
+  .size-table tr:hover td { background: var(--surface-card); }
+  .size-note {
+    margin-top: 24px;
+    padding: 20px 24px;
+    background: rgba(217,43,43,0.06);
+    border-left: 3px solid var(--red);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .size-note strong { color: var(--white); font-style: normal; }
+  .size-measure-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .measure-card {
+    background: var(--surface-card);
+    border: 1px solid var(--outline);
+    padding: 24px;
+  }
+  .measure-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px; letter-spacing: 0.08em;
+    color: var(--white);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .measure-steps {
+    list-style: none;
+    counter-reset: step-counter;
+  }
+  .measure-steps li {
+    counter-increment: step-counter;
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: var(--muted);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--outline);
+    display: flex; gap: 12px; align-items: flex-start;
+    line-height: 1.5;
+  }
+  .measure-steps li:last-child { border-bottom: none; }
+  .measure-steps li::before {
+    content: counter(step-counter);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--red);
+    flex-shrink: 0;
+    min-width: 20px;
+  }
+
+  /* ── HERO VIDEO ── */
   .hero-video {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
@@ -990,7 +1300,187 @@
     border-color: var(--red);
   }
   .hero-video-ctrl svg { pointer-events: none; }
+
+  /* ── PRICING ── */
+  .pricing-hero-card {
+    background: var(--surface-card);
+    border: 1px solid var(--outline);
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 56px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pricing-hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold));
+  }
+  .pricing-starting {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  .pricing-starting-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .pricing-big-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 12vw, 110px);
+    line-height: 1;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+  .pricing-big-price .plus {
+    font-size: 0.45em;
+    color: var(--gold);
+    vertical-align: super;
+  }
+  .pricing-pair-label {
+    font-size: 13px;
+    color: var(--muted);
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  .pricing-divider {
+    height: 1px;
+    background: var(--outline);
+    margin: 36px 0;
+  }
+  .pricing-custom-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .pricing-custom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  .custom-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: var(--surface-low);
+    padding: 16px;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+  .custom-item-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--red);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+  .custom-item-text {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .custom-item-text strong {
+    display: block;
+    color: var(--white);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .pricing-factors {
+    background: rgba(212,175,55,0.06);
+    border: 1px solid rgba(212,175,55,0.2);
+    padding: 20px 24px;
+    margin-bottom: 36px;
+  }
+  .pricing-factors-title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .pricing-factors-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .factor-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--outline);
+    padding: 4px 12px;
+    letter-spacing: 0.08em;
+  }
+  .pricing-cta-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .pricing-cta-note {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 0.06em;
+  }
+  @media (max-width: 600px) {
+    .pricing-hero-card { padding: 36px 24px; }
+    .pricing-cta-row { flex-direction: column; align-items: flex-start; }
+  }
+
 </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <a href="#" class="nav-logo">THAI8LIMBS</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero" class="active">HOME</a></li>
+    <li><a href="#gallery">GALLERY</a></li>
+    <li><a href="#process">HOW TO ORDER</a></li>
+    <li><a href="#pricing">PRICING</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <button class="btn-nav" onclick="openContactModal()">START CUSTOMIZING</button>
+    <button class="nav-hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close menu">✕</button>
+  <ul class="mobile-menu-links">
+    <li><a href="#hero" onclick="toggleMobileMenu()">HOME</a></li>
+    <li><a href="#gallery" onclick="toggleMobileMenu()">GALLERY</a></li>
+    <li><a href="#process" onclick="toggleMobileMenu()">HOW TO ORDER</a></li>
+    <li><a href="#pricing" onclick="toggleMobileMenu()">PRICING</a></li>
+    <li><a href="#faq" onclick="toggleMobileMenu()">FAQ</a></li>
+    <li><a href="#contact" onclick="toggleMobileMenu()">CONTACT</a></li>
+  </ul>
+  <button class="btn-primary" onclick="openContactModal();toggleMobileMenu();" style="margin-top:32px;width:100%;padding:18px;">START CUSTOMIZING</button>
+</div>
 
 <!-- ── HERO ── -->
 <section class="hero" id="hero">
@@ -1243,152 +1733,6 @@
   </div>
 </section>
 
-<!-- ── PRICING ── -->
-<style>
-  .pricing-hero-card {
-    background: var(--surface-card);
-    border: 1px solid var(--outline);
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 56px 60px;
-    position: relative;
-    overflow: hidden;
-  }
-  .pricing-hero-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--red), var(--gold));
-  }
-  .pricing-starting {
-    display: flex;
-    align-items: flex-end;
-    gap: 16px;
-    margin-bottom: 8px;
-  }
-  .pricing-starting-label {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .pricing-big-price {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(72px, 12vw, 110px);
-    line-height: 1;
-    color: var(--white);
-    letter-spacing: 0.02em;
-  }
-  .pricing-big-price .plus {
-    font-size: 0.45em;
-    color: var(--gold);
-    vertical-align: super;
-  }
-  .pricing-pair-label {
-    font-size: 13px;
-    color: var(--muted);
-    font-family: 'Share Tech Mono', monospace;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 40px;
-  }
-  .pricing-divider {
-    height: 1px;
-    background: var(--outline);
-    margin: 36px 0;
-  }
-  .pricing-custom-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
-    letter-spacing: 0.1em;
-    color: var(--white);
-    margin-bottom: 20px;
-    text-transform: uppercase;
-  }
-  .pricing-custom-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
-    margin-bottom: 36px;
-  }
-  .custom-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    background: var(--surface-low);
-    padding: 16px;
-    border: 1px solid rgba(255,255,255,0.04);
-  }
-  .custom-item-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--red);
-    margin-top: 7px;
-    flex-shrink: 0;
-  }
-  .custom-item-text {
-    font-size: 13px;
-    color: var(--text);
-    line-height: 1.5;
-  }
-  .custom-item-text strong {
-    display: block;
-    color: var(--white);
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 2px;
-  }
-  .pricing-factors {
-    background: rgba(212,175,55,0.06);
-    border: 1px solid rgba(212,175,55,0.2);
-    padding: 20px 24px;
-    margin-bottom: 36px;
-  }
-  .pricing-factors-title {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .pricing-factors-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .factor-tag {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--outline);
-    padding: 4px 12px;
-    letter-spacing: 0.08em;
-  }
-  .pricing-cta-row {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .pricing-cta-note {
-    font-size: 12px;
-    color: var(--muted);
-    font-family: 'Share Tech Mono', monospace;
-    letter-spacing: 0.06em;
-  }
-  @media (max-width: 600px) {
-    .pricing-hero-card { padding: 36px 24px; }
-    .pricing-cta-row { flex-direction: column; align-items: flex-start; }
-  }
-</style>
-
 <section class="pricing-section" id="pricing">
   <div class="container">
     <div class="reveal" style="text-align:center;margin-bottom:64px;">
@@ -1469,6 +1813,206 @@
     </div>
 
     <p class="reveal" style="text-align:center;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;margin-top:40px;">* Final price depends on design complexity and fabric choice. Contact us for a free quote.</p>
+  </div>
+</section>
+
+<!-- ── SHIPPING & DELIVERY ── -->
+<section class="shipping-section" id="shipping">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:20px;">
+      <div class="section-label" style="justify-content:center;">WORLDWIDE DELIVERY</div>
+      <h2 class="section-title" style="font-size:clamp(40px,5vw,72px);">SHIPPING INFO</h2>
+    </div>
+
+    <div class="shipping-grid reveal">
+      <div class="ship-card">
+        <div class="ship-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="ship-card-title">Domestic (Thailand)</div>
+        <div class="ship-card-body">
+          <strong>Kerry Express / Flash</strong><br>
+          2–5 business days after dispatch<br>
+          Tracking number provided<br>
+          <strong>Free shipping</strong> on orders 2+ pairs
+        </div>
+      </div>
+      <div class="ship-card">
+        <div class="ship-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <div class="ship-card-title">International (Asia/ASEAN)</div>
+        <div class="ship-card-body">
+          <strong>EMS Thailand / DHL</strong><br>
+          7–14 business days after dispatch<br>
+          Full tracking provided<br>
+          Japan, Korea, Singapore, UAE, HK
+        </div>
+      </div>
+      <div class="ship-card">
+        <div class="ship-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 013 2.18 2 2 0 015 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="ship-card-title">International (US/EU/AUS)</div>
+        <div class="ship-card-body">
+          <strong>EMS / DHL Express</strong><br>
+          10–21 business days after dispatch<br>
+          Customs may add 2–5 days<br>
+          Recipient responsible for customs fees
+        </div>
+      </div>
+    </div>
+
+    <!-- Production + Shipping Timeline -->
+    <div class="reveal" style="margin-top:56px;">
+      <div class="section-label">TOTAL TIMELINE — FROM ORDER TO DOOR</div>
+    </div>
+    <div class="ship-timeline reveal">
+      <div class="ship-step active">
+        <div class="ship-step-dot">01</div>
+        <div class="ship-step-label">Deposit Paid</div>
+        <div class="ship-step-days">Day 0</div>
+      </div>
+      <div class="ship-step active">
+        <div class="ship-step-dot">02</div>
+        <div class="ship-step-label">Production</div>
+        <div class="ship-step-days">15–30 days</div>
+      </div>
+      <div class="ship-step active">
+        <div class="ship-step-dot">03</div>
+        <div class="ship-step-label">Quality Check</div>
+        <div class="ship-step-days">1–2 days</div>
+      </div>
+      <div class="ship-step">
+        <div class="ship-step-dot">04</div>
+        <div class="ship-step-label">Dispatch</div>
+        <div class="ship-step-days">Day ~32</div>
+      </div>
+      <div class="ship-step">
+        <div class="ship-step-dot">05</div>
+        <div class="ship-step-label">Delivered</div>
+        <div class="ship-step-days">+7–21 days</div>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;padding:20px 28px;background:rgba(217,43,43,0.06);border-left:3px solid var(--red);" class="reveal">
+      <p style="font-family:'Barlow Condensed',sans-serif;font-size:15px;font-style:italic;color:var(--muted);line-height:1.7;">
+        <strong style="color:var(--white);font-style:normal;">Rush orders available</strong> — need it faster? Contact us. For orders of 5+ pairs or fight camp orders, contact us for dedicated production scheduling and bulk pricing.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SIZE GUIDE ── -->
+<section class="size-section" id="sizeguide">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:20px;">
+      <div class="section-label" style="justify-content:center;">FIND YOUR FIT</div>
+      <h2 class="section-title" style="font-size:clamp(40px,5vw,72px);">SIZE GUIDE</h2>
+      <p style="color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:17px;font-style:italic;margin-top:16px;max-width:520px;margin-left:auto;margin-right:auto;">
+        All shorts are custom-cut — if your measurements fall between sizes, we make them to your exact cm.
+      </p>
+    </div>
+
+    <div class="size-table-wrap reveal">
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>SIZE</th>
+            <th>WAIST (cm)</th>
+            <th>WAIST (inch)</th>
+            <th>HIP (cm)</th>
+            <th>LENGTH (cm)</th>
+            <th>FITS APPROX.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>XS</td>
+            <td>64–68</td>
+            <td>25–27"</td>
+            <td>82–86</td>
+            <td>28–30</td>
+            <td>45–55 kg</td>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td>68–74</td>
+            <td>27–29"</td>
+            <td>86–92</td>
+            <td>30–32</td>
+            <td>55–65 kg</td>
+          </tr>
+          <tr>
+            <td>M</td>
+            <td>74–80</td>
+            <td>29–31"</td>
+            <td>92–98</td>
+            <td>32–34</td>
+            <td>65–75 kg</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td>80–86</td>
+            <td>31–34"</td>
+            <td>98–104</td>
+            <td>34–36</td>
+            <td>75–85 kg</td>
+          </tr>
+          <tr>
+            <td>XL</td>
+            <td>86–94</td>
+            <td>34–37"</td>
+            <td>104–110</td>
+            <td>36–38</td>
+            <td>85–100 kg</td>
+          </tr>
+          <tr>
+            <td>XXL</td>
+            <td>94–104</td>
+            <td>37–41"</td>
+            <td>110–118</td>
+            <td>38–40</td>
+            <td>100–115 kg</td>
+          </tr>
+          <tr>
+            <td>CUSTOM</td>
+            <td>Any</td>
+            <td>Any</td>
+            <td>Any</td>
+            <td>Any</td>
+            <td>Your exact measurements</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="size-note reveal">
+      <strong>Unsure?</strong> Always go by your <strong>waist measurement in cm</strong>, not clothing size — sizing varies by brand and country. Our shorts have an elastic + drawstring waist so ±2cm is fine. Send us your measurements via LINE or WhatsApp and we'll confirm the right size for you.
+    </div>
+
+    <div class="size-measure-grid reveal">
+      <div class="measure-card">
+        <div class="measure-title">How to Measure Waist</div>
+        <ol class="measure-steps">
+          <li>Stand relaxed, feet together</li>
+          <li>Find your natural waistline (narrowest point, above hips)</li>
+          <li>Wrap tape around and keep it horizontal</li>
+          <li>Breathe out naturally — don't suck in</li>
+          <li>Read the measurement in cm</li>
+        </ol>
+      </div>
+      <div class="measure-card">
+        <div class="measure-title">How to Measure Hips</div>
+        <ol class="measure-steps">
+          <li>Stand with feet together</li>
+          <li>Find the fullest part of your hips/glutes</li>
+          <li>Wrap tape parallel to the floor</li>
+          <li>Keep tape snug but not tight</li>
+          <li>Read the measurement in cm</li>
+        </ol>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1616,15 +2160,32 @@
 <footer>
   <a href="#" class="footer-logo">THAI8LIMBS</a>
   <ul class="footer-links">
-    <li><a href="#">Privacy Policy</a></li>
-    <li><a href="#">Terms of Service</a></li>
-    <li><a href="#">Shipping Info</a></li>
-    <li><a href="#">Bulk Orders</a></li>
+    <li><a href="#shipping">Shipping Info</a></li>
+    <li><a href="#sizeguide">Size Guide</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Bulk Orders</a></li>
   </ul>
   <span class="footer-copy">© 2025 THAI8LIMBS. HANDMADE IN THAILAND.</span>
 </footer>
 
 <script>
+  // ── HAMBURGER MENU ──
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn  = document.getElementById('hamburgerBtn');
+    const open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  // Close mobile menu on ESC
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const menu = document.getElementById('mobileMenu');
+      if (menu.classList.contains('open')) toggleMobileMenu();
+    }
+  });
+
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
